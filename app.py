@@ -4,7 +4,7 @@ import concurrent.futures
 
 from flask_cors import CORS 
 
-stockfish = Stockfish(path="/home/ahsan/Desktop/Zeeshan/Chess-api/stockfish_ubuntu/stockfish-ubuntu-x86-64")
+stockfish = Stockfish(path="./stockfish_ubuntu/stockfish-ubuntu-x86-64")
 
 allowed_origins = [
     "http://localhost:3000",
