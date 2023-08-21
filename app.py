@@ -6,9 +6,19 @@ from flask_cors import CORS
 
 stockfish = Stockfish(path="/home/ahsan/Desktop/Zeeshan/Chess-api/stockfish_ubuntu/stockfish-ubuntu-x86-64")
 
+allowed_origins = [
+    "http://localhost:3000",
+    "https://chess-analysis.vercel.app/",
+    "https://chess-analysis-git-main-25zeeshan.vercel.app/",
+    "https://chess-analysis-kckrgt0mn-25zeeshan.vercel.app/"
+]
+
 app = Flask(__name__)
-CORS(app)
-cors = CORS(app, resources={r"/get_moves": {"origins": "http://localhost:3000"}})
+CORS(app, origins=allowed_origins)
+cors = CORS(app, resources={
+    r"/get_moves": {
+        "origins": allowed_origins
+}})
 
 @app.before_request
 def before_request():
