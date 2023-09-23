@@ -20,6 +20,10 @@ cors = CORS(app, resources={
         "origins": allowed_origins
 }})
 
+@app.route('/', methods=['GET'])
+def getDefault():
+    return "Hello World"
+
 @app.before_request
 def before_request():
     if request.method == 'OPTIONS':
