@@ -1,10 +1,14 @@
 from flask import Flask, request, jsonify
 from stockfish import Stockfish
 import concurrent.futures
+import os
 
 from flask_cors import CORS 
 
-stockfish = Stockfish(path="./stockfish_ubuntu/stockfish-ubuntu-x86-64")
+current_dir_path = os.path.dirname(os.path.abspath(__file__))
+stockfish_path = os.path.join(current_dir_path, "stockfish_ubuntu", "stockfish-ubuntu-x86-64")
+
+stockfish = Stockfish(path=stockfish_path)
 
 allowed_origins = [
     "http://localhost:3000",
